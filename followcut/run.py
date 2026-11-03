@@ -91,7 +91,7 @@ def main(prompt, slug, track):
     if "library" not in m or any(c["id"] not in CLIPS for c in m["library"].get("clips", [])) or len(m["library"].get("clips", [])) != len(CLIPS):
         m["library"] = export_library()
     runs = [x for x in m.get("runs", []) if x.get("slug") != slug and not x.get("placeholder")]
-    order = ["woman", "man", "dog"]
+    order = ["woman", "man", "sunglasses", "dog"]
     runs.append(run)
     runs.sort(key=lambda x: order.index(x["slug"]) if x["slug"] in order else 9)
     m["runs"] = runs
