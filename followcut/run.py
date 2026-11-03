@@ -66,6 +66,10 @@ def main(prompt, slug, track):
         p = json.loads((cache / "plan.json").read_text())
     else:
         p = make_plan(sc, prompt, keyframes=keyframes, exclude=exclude, reference=reference)
+    for sh in p["shots"]:  # seed each shot's track with the scan's box nearest its in-point
+        smp = [x for w in sc["windows"] if w["clip"] == sh["clip"] for x in w["samples"] if x["score"] > 0 and "box" in x]
+        if smp:
+            sh["seed"] = min(smp, key=lambda x: abs(x["t"] - sh["in"]))["box"]
     p["excluded"] = [{"clip": c, "label": LABELS.get(c, c), "why": "user marked: not this person"} for c in exclude]
     (cache / "plan.json").write_text(json.dumps(p, indent=1))
     music = cache / "music.wav"

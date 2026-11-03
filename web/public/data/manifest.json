@@ -395,7 +395,13 @@
       "out": 52.67,
       "beats": 8,
       "effect": "follow-crop + color-pop",
-      "reason": "airport reunion smiling in hood"
+      "reason": "airport reunion smiling in hood",
+      "seed": [
+       0.449,
+       0.3382,
+       0.9911,
+       1.0
+      ]
      },
      {
       "clip": "DJI_0674",
@@ -404,7 +410,13 @@
       "out": 4.17,
       "beats": 6,
       "effect": "follow-crop + color-pop",
-      "reason": "morning walk smiling with luggage"
+      "reason": "morning walk smiling with luggage",
+      "seed": [
+       0.0396,
+       0.1101,
+       0.675,
+       1.0
+      ]
      },
      {
       "clip": "DJI_0681",
@@ -413,7 +425,13 @@
       "out": 7.0,
       "beats": 6,
       "effect": "follow-crop + color-pop",
-      "reason": "sunny park selfie hair blowing"
+      "reason": "sunny park selfie hair blowing",
+      "seed": [
+       0.1264,
+       0.0073,
+       0.976,
+       0.9981
+      ]
      },
      {
       "clip": "DJI_0682",
@@ -422,7 +440,13 @@
       "out": 106.0,
       "beats": 4,
       "effect": "follow-crop + color-pop",
-      "reason": "beach big smile mountains behind"
+      "reason": "beach big smile mountains behind",
+      "seed": [
+       -0.0009,
+       0.0789,
+       0.4198,
+       0.9991
+      ]
      },
      {
       "clip": "DJI_0683",
@@ -431,7 +455,13 @@
       "out": 17.0,
       "beats": 6,
       "effect": "follow-crop + color-pop",
-      "reason": "waving hello smiling outdoors"
+      "reason": "waving hello smiling outdoors",
+      "seed": [
+       0.4935,
+       0.3287,
+       1.0,
+       0.9991
+      ]
      },
      {
       "clip": "DJI_0685",
@@ -440,7 +470,13 @@
       "out": 149.33,
       "beats": 4,
       "effect": "follow-crop + color-pop",
-      "reason": "car laughing eyes closed joyfully"
+      "reason": "car laughing eyes closed joyfully",
+      "seed": [
+       -0.0024,
+       0.0007,
+       0.5687,
+       0.9972
+      ]
      },
      {
       "clip": "20261018_123728_IMG_8061",
@@ -449,14 +485,20 @@
       "out": 11.0,
       "beats": 6,
       "effect": "follow-crop + color-pop",
-      "reason": "playful cow hat goodbye dance"
+      "reason": "playful cow hat goodbye dance",
+      "seed": [
+       0.0674,
+       0.2918,
+       0.7896,
+       1.0
+      ]
      }
     ],
     "excluded": []
    },
    "stats": {
     "frames_segmented": 1136,
-    "seconds": 488,
+    "seconds": 487,
     "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
    }
   },
@@ -696,7 +738,13 @@
       "out": 53.0,
       "beats": 8,
       "effect": "follow-crop + color-pop",
-      "reason": "airport goodbye kiss, close and tender"
+      "reason": "airport goodbye kiss, close and tender",
+      "seed": [
+       0.0032,
+       0.0593,
+       0.5411,
+       1.0009
+      ]
      },
      {
       "clip": "DJI_0674",
@@ -705,7 +753,13 @@
       "out": 7.17,
       "beats": 4,
       "effect": "follow-crop + color-pop",
-      "reason": "walking outdoors talking beside partner"
+      "reason": "walking outdoors talking beside partner",
+      "seed": [
+       0.4385,
+       0.215,
+       0.7891,
+       1.0
+      ]
      },
      {
       "clip": "DJI_0680",
@@ -714,7 +768,13 @@
       "out": 34.67,
       "beats": 8,
       "effect": "follow-crop + color-pop",
-      "reason": "in car wearing sunglasses talking animatedly"
+      "reason": "in car wearing sunglasses talking animatedly",
+      "seed": [
+       0.5635,
+       0.0076,
+       1.0,
+       0.9981
+      ]
      },
      {
       "clip": "DJI_0682",
@@ -723,7 +783,13 @@
       "out": 14.33,
       "beats": 4,
       "effect": "follow-crop + color-pop",
-      "reason": "sunny beach selfie leaning together smiling"
+      "reason": "sunny beach selfie leaning together smiling",
+      "seed": [
+       0.276,
+       0.0354,
+       0.8156,
+       0.9981
+      ]
      },
      {
       "clip": "DJI_0683",
@@ -732,14 +798,20 @@
       "out": 18.0,
       "beats": 8,
       "effect": "follow-crop + color-pop",
-      "reason": "smiling with sunglasses beside waving partner"
+      "reason": "smiling with sunglasses beside waving partner",
+      "seed": [
+       0.1536,
+       0.1611,
+       0.6057,
+       0.9991
+      ]
      }
     ],
     "excluded": []
    },
    "stats": {
     "frames_segmented": 1016,
-    "seconds": 438,
+    "seconds": 434,
     "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
    }
   },
@@ -972,7 +1044,13 @@
       "out": 35.67,
       "beats": 8,
       "effect": "follow-crop + color-pop",
-      "reason": "man in passenger seat chatting looking sideways"
+      "reason": "man in passenger seat chatting looking sideways",
+      "seed": [
+       0.5594,
+       0.0046,
+       1.001,
+       0.9981
+      ]
      },
      {
       "clip": "DJI_0680",
@@ -981,7 +1059,13 @@
       "out": 79.93,
       "beats": 4,
       "effect": "follow-crop + color-pop",
-      "reason": "man smiles for car selfie facing camera"
+      "reason": "man smiles for car selfie facing camera",
+      "seed": [
+       0.5625,
+       -0.0007,
+       1.0031,
+       0.9954
+      ]
      },
      {
       "clip": "DJI_0683",
@@ -990,7 +1074,13 @@
       "out": 18.0,
       "beats": 8,
       "effect": "follow-crop + color-pop",
-      "reason": "man outdoors talking beside waving woman"
+      "reason": "man outdoors talking beside waving woman",
+      "seed": [
+       0.1533,
+       0.1606,
+       0.6052,
+       0.9991
+      ]
      },
      {
       "clip": "DJI_0683",
@@ -999,14 +1089,20 @@
       "out": 66.0,
       "beats": 8,
       "effect": "follow-crop + color-pop",
-      "reason": "man laughing in sunlight low angle"
+      "reason": "man laughing in sunlight low angle",
+      "seed": [
+       -0.0022,
+       0.0024,
+       0.4344,
+       0.9972
+      ]
      }
     ],
     "excluded": []
    },
    "stats": {
     "frames_segmented": 956,
-    "seconds": 405,
+    "seconds": 408,
     "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
    }
   },

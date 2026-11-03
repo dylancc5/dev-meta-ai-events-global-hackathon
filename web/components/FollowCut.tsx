@@ -492,10 +492,13 @@ function Tile(props: {
                 <>
                   <div className="absolute inset-0 bg-black/55" />
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 px-2 text-center">
-                    <span className="rounded-full border border-amber/50 bg-black/60 px-2.5 py-0.5 font-mono text-[11px] text-amber">
+                    <span
+                      title={scan.spark_rejected}
+                      className="rounded-full border border-amber/50 bg-black/60 px-2.5 py-0.5 font-mono text-[11px] text-amber"
+                    >
                       ✕ Muse Spark: not them
                     </span>
-                    {!small && <span className="line-clamp-2 text-[11px] leading-tight text-paper/85">{scan.spark_rejected}</span>}
+                    <span className="line-clamp-2 text-[10.5px] leading-tight text-paper/90">“{scan.spark_rejected}”</span>
                   </div>
                 </>
               )}
@@ -504,7 +507,7 @@ function Tile(props: {
                   <div className="absolute inset-0 bg-black/55" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="rounded-full border border-amber/50 bg-black/60 px-2.5 py-0.5 font-mono text-[11px] text-amber">
-                      ✕ not them · excluded
+                      ✕ not them · marked by user
                     </span>
                   </div>
                 </>
@@ -701,7 +704,7 @@ function PlanPanel(props: {
       <div className="flex items-baseline justify-between">
         <div className="flex items-baseline gap-3">
           <span className="text-[11px] uppercase tracking-[0.2em] text-dim">The plan</span>
-          {showing && <span className="font-serif text-[22px] leading-none">{shots.length} shots</span>}
+          {showing && <span className="font-serif text-[22px] leading-none">{shots.length} shot{shots.length === 1 ? "" : "s"}</span>}
         </div>
         {showing && (
           <span className="font-mono text-[12px] text-mute">

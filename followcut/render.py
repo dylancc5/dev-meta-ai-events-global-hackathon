@@ -30,7 +30,7 @@ def _smooth(xs, r=10):
     return np.convolve(pad, k, mode="valid")
 
 
-def track_shot(seg, path, t_in, n, prompt):
+def track_shot(seg, path, t_in, n, prompt, seed=None):
     """Full-rate SAM on a downscaled copy; returns frames (full res), masks (sam res), centers."""
     w, h, _ = probe(path)
     sw = 960 if w >= h else 540
@@ -42,6 +42,9 @@ def track_shot(seg, path, t_in, n, prompt):
     while len(full) < n:  # clip ended early: hold last frame
         full.append(full[-1]); small.append(small[-1])
     masks, cx, cy, prev, last = [], [], [], None, None
+    if seed:  # start on the instance the scan (and Muse Spark) saw, not whoever scores highest in frame 1
+        sh_, sw_ = small[0].shape[:2]
+        prev = [seed[0] * sw_, seed[1] * sh_, seed[2] * sw_, seed[3] * sh_]
     for f in small:
         det = pick(seg(f, prompt), prev)
         if det is not None:
@@ -102,7 +105,7 @@ def render(plan, prompt, out_dir: Path, music_wav: Path, seg: Segmenter = None, 
     for si, shot in enumerate(plan["shots"]):
         path = CLIPS[shot["clip"]]
         n = int(shot["beats"] * 15)
-        full, masks, cx, cy = track_shot(seg, path, shot["in"], n, prompt)
+        full, masks, cx, cy = track_shot(seg, path, shot["in"], n, prompt, seed=shot.get("seed"))
         H, W = full[0].shape[:2]
         crop_w = int(round(H * 9 / 16 / 2) * 2) if W > H else W
         for i in range(n):
