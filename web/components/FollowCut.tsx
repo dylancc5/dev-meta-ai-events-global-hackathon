@@ -462,6 +462,16 @@ function Tile(props: {
                 {scan?.track ?? "T1"}
                 {conf != null && <span className="text-paper/80">{conf.toFixed(2)}</span>}
               </div>
+              {scan?.excluded && (
+                <>
+                  <div className="absolute inset-0 bg-black/55" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="rounded-full border border-amber/50 bg-black/60 px-2.5 py-0.5 font-mono text-[11px] text-amber">
+                      ✕ not them · excluded
+                    </span>
+                  </div>
+                </>
+              )}
               <TileCaption clip={clip} small={small} />
             </>
           ) : (

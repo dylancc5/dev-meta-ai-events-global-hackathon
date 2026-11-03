@@ -11,6 +11,7 @@ export type Clip = {
 export type ScanEntry = {
   clip: string;
   found?: boolean;
+  excluded?: boolean;
   presence?: number;
   score?: number;
   track?: string;

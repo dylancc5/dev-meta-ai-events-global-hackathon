@@ -22,12 +22,6 @@ def outline_thumb(rgb, det, badge, out_path, width=480):
         img = np.where(m[..., None] > 0, img, dim)
         cnts, _ = cv2.findContours(m, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         cv2.drawContours(img, cnts, -1, ACCENT, max(2, rgb.shape[1] // 300), lineType=cv2.LINE_AA)
-        x0, y0 = int(det["box"][0]), int(det["box"][1])
-        s = rgb.shape[1] / 960
-        (tw, th), _ = cv2.getTextSize(badge, cv2.FONT_HERSHEY_SIMPLEX, 0.6 * s * 1.6, 2)
-        y0 = max(y0, th + 12)
-        cv2.rectangle(img, (x0, y0 - th - 12), (x0 + tw + 12, y0), ACCENT, -1)
-        cv2.putText(img, badge, (x0 + 6, y0 - 6), cv2.FONT_HERSHEY_SIMPLEX, 0.6 * s * 1.6, (20, 16, 10), 2, cv2.LINE_AA)
     h = int(img.shape[0] * width / img.shape[1])
     cv2.imwrite(str(out_path), cv2.cvtColor(cv2.resize(img, (width, h), interpolation=cv2.INTER_AREA), cv2.COLOR_RGB2BGR),
                 [cv2.IMWRITE_JPEG_QUALITY, 85])
