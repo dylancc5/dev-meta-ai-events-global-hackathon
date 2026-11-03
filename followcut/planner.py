@@ -75,8 +75,8 @@ Return JSON only: {{"rejected":[{{"id":<id>,"why":"<=10 words"}}],
 def spark(scan, prompt, keyframes, target_beats=44, reference=None):
     """Muse Spark via the Meta Model API (OpenAI-compatible chat endpoint; base/model are env-configurable)."""
     key = os.environ["META_API_KEY"]
-    base = os.environ.get("META_API_BASE", "https://api.llama.com/compat/v1")
-    model = os.environ.get("META_MODEL", "muse-spark")
+    base = os.environ.get("META_API_BASE", "https://api.meta.ai/v1")
+    model = os.environ.get("META_MODEL", "muse-spark-1.1")
     ms = _moments(scan)
     cands = [{"id": i, "clip": LABELS.get(m["clip"], m["clip"]), "in": m["in"], "out": m["out"],
               "presence": round(m["presence"], 2), "area": round(m["area"], 3), "conf": round(m["conf"], 2)}
