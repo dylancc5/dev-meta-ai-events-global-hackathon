@@ -453,7 +453,7 @@
    },
    "stats": {
     "frames_segmented": 1196,
-    "seconds": 721,
+    "seconds": 735,
     "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
    }
   },
@@ -744,7 +744,7 @@
    },
    "stats": {
     "frames_segmented": 1196,
-    "seconds": 702,
+    "seconds": 734,
     "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
    }
   },
@@ -990,7 +990,7 @@
    },
    "stats": {
     "frames_segmented": 596,
-    "seconds": 372,
+    "seconds": 480,
     "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
    }
   }
