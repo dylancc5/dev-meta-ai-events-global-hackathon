@@ -116,6 +116,8 @@ def render(plan, prompt, out_dir: Path, music_wav: Path, seg: Segmenter = None, 
             xc, yc = x0 + crop_w / 2, np.clip(cy[i] * H, ch / 2, H - ch / 2)
             xa = int(np.clip(xc - cw / 2, 0, W - cw)); ya = int(np.clip(yc - ch / 2, 0, H - ch))
             frame = cv2.resize(g[ya:ya + ch, xa:xa + cw], (OW, OH), interpolation=cv2.INTER_AREA)
+            if i == n // 2:  # poster/keyframe without the burned-in title (the player shows it under the video)
+                cv2.imwrite(str(out_dir / f"shot{si:02d}.jpg"), cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
             if si == 0:
                 frame = _title(frame, prompt, min(1.0, (n - i) / 12) if i < n else 0)
             e1.stdin.write(frame.tobytes())
@@ -129,13 +131,16 @@ def render(plan, prompt, out_dir: Path, music_wav: Path, seg: Segmenter = None, 
             else:
                 rh = 900; rw = int(rh * W / H)
                 raw = cv2.resize(full[i], (rw, rh), interpolation=cv2.INTER_AREA)
+            # SAM 3.1 mask on the raw frame: amber tint + outline, so the follow window visibly comes from the mask
+            mr = cv2.resize(masks[i].astype(np.uint8), (rw, rh), interpolation=cv2.INTER_NEAREST)
+            raw = raw.copy(); raw[mr > 0] = (0.65 * raw[mr > 0] + 0.35 * np.array(ACCENT)).astype(np.uint8)
+            cnts, _ = cv2.findContours(mr, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            cv2.drawContours(raw, cnts, -1, ACCENT, 2, cv2.LINE_AA)
             ox, oy = 80 + (1200 - rw) // 2, (1080 - rh) // 2
             can[oy:oy + rh, ox:ox + rw] = raw
             ew = int(1000 * OW / OH)
             can[40:1040, 1920 - 80 - ew:1920 - 80] = cv2.resize(frame, (ew, 1000), interpolation=cv2.INTER_AREA)
             e2.stdin.write(can.tobytes())
-            if i == n // 2:
-                cv2.imwrite(str(out_dir / f"shot{si:02d}.jpg"), cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
         total += n
         progress(f"shot {si + 1}/{len(plan['shots'])} {shot['clip']} {shot['in']}-{shot['out']} ({n} frames)")
     for e in (e1, e2):

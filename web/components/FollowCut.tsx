@@ -3,7 +3,7 @@
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { Clip, Manifest, Run, ScanEntry, Shot } from "@/lib/types";
-import { matchRun } from "@/lib/match";
+import { isCached, matchRun } from "@/lib/match";
 import { dur, nf, tc } from "@/lib/format";
 
 const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -26,6 +26,15 @@ export default function FollowCut() {
   const [compare, setCompare] = useState(false);
   const [activeShot, setActiveShot] = useState(-1);
   const timers = useRef<number[]>([]);
+  const [miss, setMiss] = useState<{ typed: string; shown: string } | null>(null);
+  // The layout is composed for a 1920x1080 stage; on smaller screens scale the whole stage down instead of reflowing.
+  const [zoom, setZoom] = useState(1);
+  useEffect(() => {
+    const fit = () => setZoom(Math.min(1, window.innerWidth / 1920, window.innerHeight / 1080));
+    fit();
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+  }, []);
 
   useEffect(() => {
     let alive = true;
@@ -79,7 +88,9 @@ export default function FollowCut() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    start(matchRun(prompt, runs));
+    const r = matchRun(prompt, runs);
+    setMiss(r && !isCached(prompt, r) ? { typed: prompt.trim(), shown: r.prompt ?? r.slug } : null);
+    start(r);
   };
 
   const markReady = useCallback(() => setReady(true), []);
@@ -106,7 +117,10 @@ export default function FollowCut() {
   const totalSec = clips.reduce((a, c) => a + (c.duration ?? 0), 0);
 
   return (
-    <div className="relative flex h-screen flex-col px-12 pt-7 pb-4">
+    <div
+      className={`relative flex flex-col px-12 pt-7 pb-4 ${zoom < 1 ? "" : "h-screen"}`}
+      style={zoom < 1 ? { width: 1920, height: 1080, zoom, marginInline: "auto" } : undefined}
+    >
       <Header />
 
       <main className="mt-6 flex min-h-0 flex-1 gap-10">
@@ -142,6 +156,7 @@ export default function FollowCut() {
                   type="button"
                   data-run={r.slug}
                   onClick={() => {
+                    setMiss(null);
                     setPrompt(r.prompt ?? r.slug);
                     start(r);
                   }}
@@ -155,6 +170,13 @@ export default function FollowCut() {
                 </button>
               ))}
             </div>
+            {miss && (
+              <p className="fade-up mt-3 rounded-xl border border-amber/30 bg-amber/[0.06] px-4 py-2.5 text-[13.5px] leading-snug text-paper/85">
+                No cached run for <span className="text-amber">“{miss.typed}”</span>. SAM 3.1 runs on-device (about 6 min per
+                prompt), so this hosted replay shows the closest cached run, <span className="text-amber">“{miss.shown}”</span>.
+                Clone the repo to cut any prompt.
+              </p>
+            )}
           </form>
 
           <div className="mt-6 flex min-h-0 flex-1 flex-col rounded-2xl border border-line bg-panel/60 p-5">

@@ -34,3 +34,11 @@ export function matchRun(text: string, runs: Run[]): Run | undefined {
   }
   return best;
 }
+
+/** True when the text names a cached run (exact or substring), i.e. the replay is honest about what was typed. */
+export function isCached(text: string, run: Run | undefined): boolean {
+  if (!run) return false;
+  const q = text.trim().toLowerCase();
+  const p = (run.prompt ?? "").toLowerCase();
+  return !q || q === p || q === run.slug.toLowerCase() || (!!p && (p.includes(q) || q.includes(p)));
+}

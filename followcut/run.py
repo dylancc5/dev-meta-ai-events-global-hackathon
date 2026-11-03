@@ -60,9 +60,12 @@ def main(prompt, slug, track):
     sc = json.loads((cache / "scan.json").read_text()) if (cache / "scan.json").exists() else scan(prompt, slug, cache, seg, track)
     exclude = [x for x in os.environ.get("EXCLUDE", "").split(",") if x]
     keyframes, reference = {}, None
-    if os.environ.get("META_API_KEY"):  # Spark sees one keyframe per candidate + a reference
+    if os.environ.get("META_API_KEY") and not os.environ.get("REUSE_PLAN"):  # Spark sees one keyframe per candidate + a reference
         keyframes, reference = spark_inputs(sc, cache, exclude)
-    p = make_plan(sc, prompt, keyframes=keyframes, exclude=exclude, reference=reference)
+    if os.environ.get("REUSE_PLAN") and (cache / "plan.json").exists():  # re-render without re-planning
+        p = json.loads((cache / "plan.json").read_text())
+    else:
+        p = make_plan(sc, prompt, keyframes=keyframes, exclude=exclude, reference=reference)
     p["excluded"] = [{"clip": c, "label": LABELS.get(c, c), "why": "user marked: not this person"} for c in exclude]
     (cache / "plan.json").write_text(json.dumps(p, indent=1))
     music = cache / "music.wav"

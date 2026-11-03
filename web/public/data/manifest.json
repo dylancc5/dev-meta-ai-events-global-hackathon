@@ -986,7 +986,7 @@
    },
    "stats": {
     "frames_segmented": 596,
-    "seconds": 253,
+    "seconds": 254,
     "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
    }
   }
