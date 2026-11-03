@@ -360,8 +360,7 @@
      "score": 0.895,
      "track": "W1",
      "frames": 25,
-     "thumb": "/data/runs/woman/scan/20261017_201637_IMG_7981.jpg",
-     "excluded": true
+     "thumb": "/data/runs/woman/scan/20261017_201637_IMG_7981.jpg"
     },
     {
      "clip": "20261018_052651_IMG_5774",
@@ -383,46 +382,56 @@
     }
    ],
    "plan": {
-    "planner": "heuristic-stub",
-    "planner_label": "Heuristic planner (stub, Muse Spark pending API key)",
+    "planner": "muse-spark:muse-spark-1.3",
+    "rejected_by_spark": [],
+    "planner_label": "Muse Spark (muse-spark-1.3) via Meta Model API",
     "bpm": 120,
-    "duration": 22.0,
+    "duration": 20.0,
     "shots": [
+     {
+      "clip": "DJI_0673",
+      "label": "PDX gate",
+      "in": 48.67,
+      "out": 52.67,
+      "beats": 8,
+      "effect": "follow-crop + color-pop",
+      "reason": "airport reunion smiling in hood"
+     },
      {
       "clip": "DJI_0674",
       "label": "Morning walk",
-      "in": 100.0,
-      "out": 104.0,
-      "beats": 8,
+      "in": 1.17,
+      "out": 4.17,
+      "beats": 6,
       "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 36% \u00b7 SAM 0.93"
-     },
-     {
-      "clip": "DJI_0680",
-      "label": "Cascade Locks car",
-      "in": 33.0,
-      "out": 37.0,
-      "beats": 8,
-      "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 27% \u00b7 SAM 0.91"
+      "reason": "morning walk smiling with luggage"
      },
      {
       "clip": "DJI_0681",
       "label": "Cascade Locks park",
-      "in": 10.0,
-      "out": 14.0,
-      "beats": 8,
+      "in": 4.0,
+      "out": 7.0,
+      "beats": 6,
       "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 25% \u00b7 SAM 0.95"
+      "reason": "sunny park selfie hair blowing"
+     },
+     {
+      "clip": "DJI_0682",
+      "label": "Thunder Island",
+      "in": 104.0,
+      "out": 106.0,
+      "beats": 4,
+      "effect": "follow-crop + color-pop",
+      "reason": "beach big smile mountains behind"
      },
      {
       "clip": "DJI_0683",
       "label": "Bonneville Hatchery",
-      "in": 60.0,
-      "out": 64.0,
-      "beats": 8,
+      "in": 14.0,
+      "out": 17.0,
+      "beats": 6,
       "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 28% \u00b7 SAM 0.95"
+      "reason": "waving hello smiling outdoors"
      },
      {
       "clip": "DJI_0685",
@@ -431,29 +440,23 @@
       "out": 149.33,
       "beats": 4,
       "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 31% \u00b7 SAM 0.92"
+      "reason": "car laughing eyes closed joyfully"
      },
      {
       "clip": "20261018_123728_IMG_8061",
       "label": "Bye Oregon",
-      "in": 2.87,
-      "out": 6.87,
-      "beats": 8,
+      "in": 8.0,
+      "out": 11.0,
+      "beats": 6,
       "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 12% \u00b7 SAM 0.93"
+      "reason": "playful cow hat goodbye dance"
      }
     ],
-    "excluded": [
-     {
-      "clip": "20261017_201637_IMG_7981",
-      "label": "Project Matcha",
-      "why": "user marked: not this person"
-     }
-    ]
+    "excluded": []
    },
    "stats": {
-    "frames_segmented": 1196,
-    "seconds": 735,
+    "frames_segmented": 1136,
+    "seconds": 492,
     "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
    }
   },
@@ -670,14 +673,21 @@
      "track": "M1",
      "frames": 52,
      "thumb": "/data/runs/man/scan/20261018_123728_IMG_8061.jpg",
-     "excluded": true
+     "spark_rejected": "boxed man is older bald stranger"
     }
    ],
    "plan": {
-    "planner": "heuristic-stub",
-    "planner_label": "Heuristic planner (stub, Muse Spark pending API key)",
+    "planner": "muse-spark:muse-spark-1.3",
+    "rejected_by_spark": [
+     {
+      "clip": "20261018_123728_IMG_8061",
+      "label": "Bye Oregon",
+      "why": "boxed man is older bald stranger"
+     }
+    ],
+    "planner_label": "Muse Spark (muse-spark-1.3) via Meta Model API",
     "bpm": 120,
-    "duration": 22.0,
+    "duration": 16.0,
     "shots": [
      {
       "clip": "DJI_0673",
@@ -686,16 +696,16 @@
       "out": 53.0,
       "beats": 8,
       "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 30% \u00b7 SAM 0.96"
+      "reason": "airport goodbye kiss, close and tender"
      },
      {
       "clip": "DJI_0674",
       "label": "Morning walk",
-      "in": 100.0,
-      "out": 104.0,
-      "beats": 8,
+      "in": 5.17,
+      "out": 7.17,
+      "beats": 4,
       "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 14% \u00b7 SAM 0.96"
+      "reason": "walking outdoors talking beside partner"
      },
      {
       "clip": "DJI_0680",
@@ -704,47 +714,32 @@
       "out": 34.67,
       "beats": 8,
       "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 33% \u00b7 SAM 0.96"
+      "reason": "in car wearing sunglasses talking animatedly"
      },
      {
       "clip": "DJI_0682",
       "label": "Thunder Island",
-      "in": 29.67,
-      "out": 33.67,
-      "beats": 8,
+      "in": 12.33,
+      "out": 14.33,
+      "beats": 4,
       "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 24% \u00b7 SAM 0.96"
+      "reason": "sunny beach selfie leaning together smiling"
      },
      {
       "clip": "DJI_0683",
       "label": "Bonneville Hatchery",
-      "in": 62.0,
-      "out": 66.0,
+      "in": 14.0,
+      "out": 18.0,
       "beats": 8,
       "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 23% \u00b7 SAM 0.97"
-     },
-     {
-      "clip": "DJI_0685",
-      "label": "Downtown drive",
-      "in": 147.33,
-      "out": 149.33,
-      "beats": 4,
-      "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 30% \u00b7 SAM 0.95"
+      "reason": "smiling with sunglasses beside waving partner"
      }
     ],
-    "excluded": [
-     {
-      "clip": "20261018_123728_IMG_8061",
-      "label": "Bye Oregon",
-      "why": "user marked: not this person"
-     }
-    ]
+    "excluded": []
    },
    "stats": {
-    "frames_segmented": 1196,
-    "seconds": 734,
+    "frames_segmented": 1016,
+    "seconds": 435,
     "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
    }
   },
@@ -965,8 +960,9 @@
     }
    ],
    "plan": {
-    "planner": "heuristic-stub",
-    "planner_label": "Heuristic planner (stub, Muse Spark pending API key)",
+    "planner": "muse-spark:muse-spark-1.3",
+    "rejected_by_spark": [],
+    "planner_label": "Muse Spark (muse-spark-1.3) via Meta Model API",
     "bpm": 120,
     "duration": 2.0,
     "shots": [
@@ -977,7 +973,7 @@
       "out": 7.2,
       "beats": 4,
       "effect": "follow-crop + color-pop",
-      "reason": "in frame 100% of samples \u00b7 fills 9% \u00b7 SAM 0.92"
+      "reason": "Small dog peeks out of black carrier bag"
      }
     ],
     "excluded": [
@@ -990,7 +986,7 @@
    },
    "stats": {
     "frames_segmented": 596,
-    "seconds": 480,
+    "seconds": 253,
     "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
    }
   }
