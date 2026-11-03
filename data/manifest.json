@@ -1,0 +1,1110 @@
+{
+ "library": {
+  "name": "Portland, Oct 16\u201318",
+  "clips": [
+   {
+    "id": "DJI_0671",
+    "label": "3:51am curb",
+    "thumb": "/data/thumbs/DJI_0671.jpg",
+    "duration": 19.9,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0672",
+    "label": "Uber no-show",
+    "thumb": "/data/thumbs/DJI_0672.jpg",
+    "duration": 90.1,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0673",
+    "label": "PDX gate",
+    "thumb": "/data/thumbs/DJI_0673.jpg",
+    "duration": 56.2,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0674",
+    "label": "Morning walk",
+    "thumb": "/data/thumbs/DJI_0674.jpg",
+    "duration": 390.9,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0675",
+    "label": "Oops",
+    "thumb": "/data/thumbs/DJI_0675.jpg",
+    "duration": 1.8,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0676",
+    "label": "Tanaka matcha",
+    "thumb": "/data/thumbs/DJI_0676.jpg",
+    "duration": 342.2,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0680",
+    "label": "Cascade Locks car",
+    "thumb": "/data/thumbs/DJI_0680.jpg",
+    "duration": 80.0,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0681",
+    "label": "Cascade Locks park",
+    "thumb": "/data/thumbs/DJI_0681.jpg",
+    "duration": 23.6,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0682",
+    "label": "Thunder Island",
+    "thumb": "/data/thumbs/DJI_0682.jpg",
+    "duration": 111.9,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0683",
+    "label": "Bonneville Hatchery",
+    "thumb": "/data/thumbs/DJI_0683.jpg",
+    "duration": 128.5,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0684",
+    "label": "Car blooper",
+    "thumb": "/data/thumbs/DJI_0684.jpg",
+    "duration": 26.9,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0685",
+    "label": "Downtown drive",
+    "thumb": "/data/thumbs/DJI_0685.jpg",
+    "duration": 438.8,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0686",
+    "label": "Canyon road",
+    "thumb": "/data/thumbs/DJI_0686.jpg",
+    "duration": 95.7,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0687",
+    "label": "Washington Park",
+    "thumb": "/data/thumbs/DJI_0687.jpg",
+    "duration": 74.8,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0688",
+    "label": "Birthday dinner",
+    "thumb": "/data/thumbs/DJI_0688.jpg",
+    "duration": 596.5,
+    "aspect": "16:9"
+   },
+   {
+    "id": "DJI_0689",
+    "label": "Cheese & Crack",
+    "thumb": "/data/thumbs/DJI_0689.jpg",
+    "duration": 319.4,
+    "aspect": "16:9"
+   },
+   {
+    "id": "20261016_145623_IMG_7880",
+    "label": "The rental",
+    "thumb": "/data/thumbs/20261016_145623_IMG_7880.jpg",
+    "duration": 1.1,
+    "aspect": "9:16"
+   },
+   {
+    "id": "20261016_221125_IMG_7917",
+    "label": "Bonneville Dam",
+    "thumb": "/data/thumbs/20261016_221125_IMG_7917.jpg",
+    "duration": 35.4,
+    "aspect": "9:16"
+   },
+   {
+    "id": "20261017_040824_IMG_5693",
+    "label": "Tilikum Crossing",
+    "thumb": "/data/thumbs/20261017_040824_IMG_5693.jpg",
+    "duration": 1.9,
+    "aspect": "9:16"
+   },
+   {
+    "id": "20261017_184155_IMG_5710",
+    "label": "Dessert tasting",
+    "thumb": "/data/thumbs/20261017_184155_IMG_5710.jpg",
+    "duration": 412.4,
+    "aspect": "9:16"
+   },
+   {
+    "id": "20261017_201637_IMG_7981",
+    "label": "Project Matcha",
+    "thumb": "/data/thumbs/20261017_201637_IMG_7981.jpg",
+    "duration": 7.4,
+    "aspect": "9:16"
+   },
+   {
+    "id": "20261018_052651_IMG_5774",
+    "label": "Locked in the car",
+    "thumb": "/data/thumbs/20261018_052651_IMG_5774.jpg",
+    "duration": 119.4,
+    "aspect": "9:16"
+   },
+   {
+    "id": "20261018_123728_IMG_8061",
+    "label": "Bye Oregon",
+    "thumb": "/data/thumbs/20261018_123728_IMG_8061.jpg",
+    "duration": 21.9,
+    "aspect": "9:16"
+   }
+  ]
+ },
+ "runs": [
+  {
+   "slug": "woman",
+   "prompt": "the woman with long hair",
+   "edit": "/data/runs/woman/edit.mp4",
+   "poster": "/data/runs/woman/poster.jpg",
+   "compare": "/data/runs/woman/compare.mp4",
+   "scan": [
+    {
+     "clip": "DJI_0671",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.723,
+     "track": "W1",
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/DJI_0671.jpg"
+    },
+    {
+     "clip": "DJI_0672",
+     "found": true,
+     "presence": 0.75,
+     "score": 0.753,
+     "track": "W1",
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/DJI_0672.jpg"
+    },
+    {
+     "clip": "DJI_0673",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.778,
+     "track": "W1",
+     "frames": 28,
+     "thumb": "/data/runs/woman/scan/DJI_0673.jpg"
+    },
+    {
+     "clip": "DJI_0674",
+     "found": true,
+     "presence": 0.705,
+     "score": 0.909,
+     "track": "W1",
+     "frames": 112,
+     "thumb": "/data/runs/woman/scan/DJI_0674.jpg"
+    },
+    {
+     "clip": "DJI_0675",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/DJI_0675.jpg"
+    },
+    {
+     "clip": "DJI_0676",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.933,
+     "track": "W1",
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/DJI_0676.jpg"
+    },
+    {
+     "clip": "DJI_0680",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.9,
+     "track": "W1",
+     "frames": 35,
+     "thumb": "/data/runs/woman/scan/DJI_0680.jpg"
+    },
+    {
+     "clip": "DJI_0681",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.866,
+     "track": "W1",
+     "frames": 66,
+     "thumb": "/data/runs/woman/scan/DJI_0681.jpg"
+    },
+    {
+     "clip": "DJI_0682",
+     "found": true,
+     "presence": 0.5,
+     "score": 0.76,
+     "track": "W1",
+     "frames": 70,
+     "thumb": "/data/runs/woman/scan/DJI_0682.jpg"
+    },
+    {
+     "clip": "DJI_0683",
+     "found": true,
+     "presence": 0.678,
+     "score": 0.93,
+     "track": "W1",
+     "frames": 59,
+     "thumb": "/data/runs/woman/scan/DJI_0683.jpg"
+    },
+    {
+     "clip": "DJI_0684",
+     "found": true,
+     "presence": 0.25,
+     "score": 0.633,
+     "track": "W1",
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/DJI_0684.jpg"
+    },
+    {
+     "clip": "DJI_0685",
+     "found": true,
+     "presence": 0.933,
+     "score": 0.915,
+     "track": "W1",
+     "frames": 15,
+     "thumb": "/data/runs/woman/scan/DJI_0685.jpg"
+    },
+    {
+     "clip": "DJI_0686",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 22,
+     "thumb": "/data/runs/woman/scan/DJI_0686.jpg"
+    },
+    {
+     "clip": "DJI_0687",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/DJI_0687.jpg"
+    },
+    {
+     "clip": "DJI_0688",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.887,
+     "track": "W1",
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/DJI_0688.jpg"
+    },
+    {
+     "clip": "DJI_0689",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.886,
+     "track": "W1",
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/DJI_0689.jpg"
+    },
+    {
+     "clip": "20261016_145623_IMG_7880",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/20261016_145623_IMG_7880.jpg"
+    },
+    {
+     "clip": "20261016_221125_IMG_7917",
+     "found": true,
+     "presence": 0.75,
+     "score": 0.865,
+     "track": "W1",
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/20261016_221125_IMG_7917.jpg"
+    },
+    {
+     "clip": "20261017_040824_IMG_5693",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/20261017_040824_IMG_5693.jpg"
+    },
+    {
+     "clip": "20261017_184155_IMG_5710",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.696,
+     "track": "W1",
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/20261017_184155_IMG_5710.jpg"
+    },
+    {
+     "clip": "20261017_201637_IMG_7981",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.895,
+     "track": "W1",
+     "frames": 25,
+     "thumb": "/data/runs/woman/scan/20261017_201637_IMG_7981.jpg"
+    },
+    {
+     "clip": "20261018_052651_IMG_5774",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/woman/scan/20261018_052651_IMG_5774.jpg"
+    },
+    {
+     "clip": "20261018_123728_IMG_8061",
+     "found": true,
+     "presence": 0.923,
+     "score": 0.899,
+     "track": "W1",
+     "frames": 52,
+     "thumb": "/data/runs/woman/scan/20261018_123728_IMG_8061.jpg"
+    }
+   ],
+   "plan": {
+    "planner": "muse-spark:muse-spark-1.3",
+    "rejected_by_spark": [],
+    "planner_label": "Muse Spark (muse-spark-1.3) via Meta Model API",
+    "bpm": 120,
+    "duration": 20.0,
+    "shots": [
+     {
+      "clip": "DJI_0673",
+      "label": "PDX gate",
+      "in": 48.67,
+      "out": 52.67,
+      "beats": 8,
+      "effect": "follow-crop + color-pop",
+      "reason": "airport reunion smiling in hood",
+      "seed": [
+       0.449,
+       0.3382,
+       0.9911,
+       1.0
+      ]
+     },
+     {
+      "clip": "DJI_0674",
+      "label": "Morning walk",
+      "in": 1.17,
+      "out": 4.17,
+      "beats": 6,
+      "effect": "follow-crop + color-pop",
+      "reason": "morning walk smiling with luggage",
+      "seed": [
+       0.0396,
+       0.1101,
+       0.675,
+       1.0
+      ]
+     },
+     {
+      "clip": "DJI_0681",
+      "label": "Cascade Locks park",
+      "in": 4.0,
+      "out": 7.0,
+      "beats": 6,
+      "effect": "follow-crop + color-pop",
+      "reason": "sunny park selfie hair blowing",
+      "seed": [
+       0.1264,
+       0.0073,
+       0.976,
+       0.9981
+      ]
+     },
+     {
+      "clip": "DJI_0682",
+      "label": "Thunder Island",
+      "in": 104.0,
+      "out": 106.0,
+      "beats": 4,
+      "effect": "follow-crop + color-pop",
+      "reason": "beach big smile mountains behind",
+      "seed": [
+       -0.0009,
+       0.0789,
+       0.4198,
+       0.9991
+      ]
+     },
+     {
+      "clip": "DJI_0683",
+      "label": "Bonneville Hatchery",
+      "in": 14.0,
+      "out": 17.0,
+      "beats": 6,
+      "effect": "follow-crop + color-pop",
+      "reason": "waving hello smiling outdoors",
+      "seed": [
+       0.4935,
+       0.3287,
+       1.0,
+       0.9991
+      ]
+     },
+     {
+      "clip": "DJI_0685",
+      "label": "Downtown drive",
+      "in": 147.33,
+      "out": 149.33,
+      "beats": 4,
+      "effect": "follow-crop + color-pop",
+      "reason": "car laughing eyes closed joyfully",
+      "seed": [
+       -0.0024,
+       0.0007,
+       0.5687,
+       0.9972
+      ]
+     },
+     {
+      "clip": "20261018_123728_IMG_8061",
+      "label": "Bye Oregon",
+      "in": 8.0,
+      "out": 11.0,
+      "beats": 6,
+      "effect": "follow-crop + color-pop",
+      "reason": "playful cow hat goodbye dance",
+      "seed": [
+       0.0674,
+       0.2918,
+       0.7896,
+       1.0
+      ]
+     }
+    ],
+    "excluded": []
+   },
+   "stats": {
+    "frames_segmented": 1136,
+    "seconds": 487,
+    "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
+   }
+  },
+  {
+   "slug": "man",
+   "prompt": "the man",
+   "edit": "/data/runs/man/edit.mp4",
+   "poster": "/data/runs/man/poster.jpg",
+   "compare": "/data/runs/man/compare.mp4",
+   "scan": [
+    {
+     "clip": "DJI_0671",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.925,
+     "track": "M1",
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/DJI_0671.jpg"
+    },
+    {
+     "clip": "DJI_0672",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.922,
+     "track": "M1",
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/DJI_0672.jpg"
+    },
+    {
+     "clip": "DJI_0673",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.95,
+     "track": "M1",
+     "frames": 28,
+     "thumb": "/data/runs/man/scan/DJI_0673.jpg"
+    },
+    {
+     "clip": "DJI_0674",
+     "found": true,
+     "presence": 0.679,
+     "score": 0.928,
+     "track": "M1",
+     "frames": 112,
+     "thumb": "/data/runs/man/scan/DJI_0674.jpg"
+    },
+    {
+     "clip": "DJI_0675",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/DJI_0675.jpg"
+    },
+    {
+     "clip": "DJI_0676",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.909,
+     "track": "M1",
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/DJI_0676.jpg"
+    },
+    {
+     "clip": "DJI_0680",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.947,
+     "track": "M1",
+     "frames": 35,
+     "thumb": "/data/runs/man/scan/DJI_0680.jpg"
+    },
+    {
+     "clip": "DJI_0681",
+     "found": true,
+     "presence": 0.015,
+     "score": 0.637,
+     "track": "M1",
+     "frames": 66,
+     "thumb": "/data/runs/man/scan/DJI_0681.jpg"
+    },
+    {
+     "clip": "DJI_0682",
+     "found": true,
+     "presence": 0.529,
+     "score": 0.955,
+     "track": "M1",
+     "frames": 70,
+     "thumb": "/data/runs/man/scan/DJI_0682.jpg"
+    },
+    {
+     "clip": "DJI_0683",
+     "found": true,
+     "presence": 0.847,
+     "score": 0.953,
+     "track": "M1",
+     "frames": 59,
+     "thumb": "/data/runs/man/scan/DJI_0683.jpg"
+    },
+    {
+     "clip": "DJI_0684",
+     "found": true,
+     "presence": 0.75,
+     "score": 0.932,
+     "track": "M1",
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/DJI_0684.jpg"
+    },
+    {
+     "clip": "DJI_0685",
+     "found": true,
+     "presence": 0.667,
+     "score": 0.951,
+     "track": "M1",
+     "frames": 15,
+     "thumb": "/data/runs/man/scan/DJI_0685.jpg"
+    },
+    {
+     "clip": "DJI_0686",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 22,
+     "thumb": "/data/runs/man/scan/DJI_0686.jpg"
+    },
+    {
+     "clip": "DJI_0687",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/DJI_0687.jpg"
+    },
+    {
+     "clip": "DJI_0688",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.958,
+     "track": "M1",
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/DJI_0688.jpg"
+    },
+    {
+     "clip": "DJI_0689",
+     "found": true,
+     "presence": 0.5,
+     "score": 0.936,
+     "track": "M1",
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/DJI_0689.jpg"
+    },
+    {
+     "clip": "20261016_145623_IMG_7880",
+     "found": true,
+     "presence": 0.25,
+     "score": 0.462,
+     "track": "M1",
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/20261016_145623_IMG_7880.jpg"
+    },
+    {
+     "clip": "20261016_221125_IMG_7917",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.971,
+     "track": "M1",
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/20261016_221125_IMG_7917.jpg"
+    },
+    {
+     "clip": "20261017_040824_IMG_5693",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/20261017_040824_IMG_5693.jpg"
+    },
+    {
+     "clip": "20261017_184155_IMG_5710",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.8,
+     "track": "M1",
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/20261017_184155_IMG_5710.jpg"
+    },
+    {
+     "clip": "20261017_201637_IMG_7981",
+     "found": true,
+     "presence": 0.72,
+     "score": 0.914,
+     "track": "M1",
+     "frames": 25,
+     "thumb": "/data/runs/man/scan/20261017_201637_IMG_7981.jpg"
+    },
+    {
+     "clip": "20261018_052651_IMG_5774",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.969,
+     "track": "M1",
+     "frames": 4,
+     "thumb": "/data/runs/man/scan/20261018_052651_IMG_5774.jpg"
+    },
+    {
+     "clip": "20261018_123728_IMG_8061",
+     "found": true,
+     "presence": 0.923,
+     "score": 0.821,
+     "track": "M1",
+     "frames": 52,
+     "thumb": "/data/runs/man/scan/20261018_123728_IMG_8061.jpg",
+     "spark_rejected": "boxed man is older bald stranger"
+    }
+   ],
+   "plan": {
+    "planner": "muse-spark:muse-spark-1.3",
+    "rejected_by_spark": [
+     {
+      "clip": "20261018_123728_IMG_8061",
+      "label": "Bye Oregon",
+      "why": "boxed man is older bald stranger"
+     }
+    ],
+    "planner_label": "Muse Spark (muse-spark-1.3) via Meta Model API",
+    "bpm": 120,
+    "duration": 16.0,
+    "shots": [
+     {
+      "clip": "DJI_0673",
+      "label": "PDX gate",
+      "in": 49.0,
+      "out": 53.0,
+      "beats": 8,
+      "effect": "follow-crop + color-pop",
+      "reason": "airport goodbye kiss, close and tender",
+      "seed": [
+       0.0032,
+       0.0593,
+       0.5411,
+       1.0009
+      ]
+     },
+     {
+      "clip": "DJI_0674",
+      "label": "Morning walk",
+      "in": 5.17,
+      "out": 7.17,
+      "beats": 4,
+      "effect": "follow-crop + color-pop",
+      "reason": "walking outdoors talking beside partner",
+      "seed": [
+       0.4385,
+       0.215,
+       0.7891,
+       1.0
+      ]
+     },
+     {
+      "clip": "DJI_0680",
+      "label": "Cascade Locks car",
+      "in": 30.67,
+      "out": 34.67,
+      "beats": 8,
+      "effect": "follow-crop + color-pop",
+      "reason": "in car wearing sunglasses talking animatedly",
+      "seed": [
+       0.5635,
+       0.0076,
+       1.0,
+       0.9981
+      ]
+     },
+     {
+      "clip": "DJI_0682",
+      "label": "Thunder Island",
+      "in": 12.33,
+      "out": 14.33,
+      "beats": 4,
+      "effect": "follow-crop + color-pop",
+      "reason": "sunny beach selfie leaning together smiling",
+      "seed": [
+       0.276,
+       0.0354,
+       0.8156,
+       0.9981
+      ]
+     },
+     {
+      "clip": "DJI_0683",
+      "label": "Bonneville Hatchery",
+      "in": 14.0,
+      "out": 18.0,
+      "beats": 8,
+      "effect": "follow-crop + color-pop",
+      "reason": "smiling with sunglasses beside waving partner",
+      "seed": [
+       0.1536,
+       0.1611,
+       0.6057,
+       0.9991
+      ]
+     }
+    ],
+    "excluded": []
+   },
+   "stats": {
+    "frames_segmented": 1016,
+    "seconds": 434,
+    "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
+   }
+  },
+  {
+   "slug": "sunglasses",
+   "prompt": "the man in sunglasses",
+   "edit": "/data/runs/sunglasses/edit.mp4",
+   "poster": "/data/runs/sunglasses/poster.jpg",
+   "compare": "/data/runs/sunglasses/compare.mp4",
+   "scan": [
+    {
+     "clip": "DJI_0671",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0671.jpg"
+    },
+    {
+     "clip": "DJI_0672",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0672.jpg"
+    },
+    {
+     "clip": "DJI_0673",
+     "found": true,
+     "presence": 0.25,
+     "score": 0.686,
+     "track": "M2",
+     "frames": 28,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0673.jpg"
+    },
+    {
+     "clip": "DJI_0674",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 112,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0674.jpg"
+    },
+    {
+     "clip": "DJI_0675",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0675.jpg"
+    },
+    {
+     "clip": "DJI_0676",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0676.jpg"
+    },
+    {
+     "clip": "DJI_0680",
+     "found": true,
+     "presence": 1.0,
+     "score": 0.971,
+     "track": "M2",
+     "frames": 35,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0680.jpg"
+    },
+    {
+     "clip": "DJI_0681",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 66,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0681.jpg"
+    },
+    {
+     "clip": "DJI_0682",
+     "found": true,
+     "presence": 0.057,
+     "score": 0.655,
+     "track": "M2",
+     "frames": 70,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0682.jpg"
+    },
+    {
+     "clip": "DJI_0683",
+     "found": true,
+     "presence": 0.814,
+     "score": 0.972,
+     "track": "M2",
+     "frames": 59,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0683.jpg"
+    },
+    {
+     "clip": "DJI_0684",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0684.jpg"
+    },
+    {
+     "clip": "DJI_0685",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 15,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0685.jpg"
+    },
+    {
+     "clip": "DJI_0686",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 22,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0686.jpg"
+    },
+    {
+     "clip": "DJI_0687",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0687.jpg"
+    },
+    {
+     "clip": "DJI_0688",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0688.jpg"
+    },
+    {
+     "clip": "DJI_0689",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/DJI_0689.jpg"
+    },
+    {
+     "clip": "20261016_145623_IMG_7880",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/20261016_145623_IMG_7880.jpg"
+    },
+    {
+     "clip": "20261016_221125_IMG_7917",
+     "found": true,
+     "presence": 0.75,
+     "score": 0.903,
+     "track": "M2",
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/20261016_221125_IMG_7917.jpg"
+    },
+    {
+     "clip": "20261017_040824_IMG_5693",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/20261017_040824_IMG_5693.jpg"
+    },
+    {
+     "clip": "20261017_184155_IMG_5710",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/20261017_184155_IMG_5710.jpg"
+    },
+    {
+     "clip": "20261017_201637_IMG_7981",
+     "found": true,
+     "presence": 0.28,
+     "score": 0.719,
+     "track": "M2",
+     "frames": 25,
+     "thumb": "/data/runs/sunglasses/scan/20261017_201637_IMG_7981.jpg"
+    },
+    {
+     "clip": "20261018_052651_IMG_5774",
+     "found": true,
+     "presence": 0.25,
+     "score": 0.599,
+     "track": "M2",
+     "frames": 4,
+     "thumb": "/data/runs/sunglasses/scan/20261018_052651_IMG_5774.jpg"
+    },
+    {
+     "clip": "20261018_123728_IMG_8061",
+     "found": false,
+     "presence": 0.0,
+     "score": 0.0,
+     "track": null,
+     "frames": 52,
+     "thumb": "/data/runs/sunglasses/scan/20261018_123728_IMG_8061.jpg"
+    }
+   ],
+   "plan": {
+    "planner": "muse-spark:muse-spark-1.3",
+    "rejected_by_spark": [],
+    "planner_label": "Muse Spark (muse-spark-1.3) via Meta Model API",
+    "bpm": 120,
+    "duration": 14.0,
+    "shots": [
+     {
+      "clip": "DJI_0680",
+      "label": "Cascade Locks car",
+      "in": 31.67,
+      "out": 35.67,
+      "beats": 8,
+      "effect": "follow-crop + color-pop",
+      "reason": "man in passenger seat chatting looking sideways",
+      "seed": [
+       0.5594,
+       0.0046,
+       1.001,
+       0.9981
+      ]
+     },
+     {
+      "clip": "DJI_0680",
+      "label": "Cascade Locks car",
+      "in": 77.93,
+      "out": 79.93,
+      "beats": 4,
+      "effect": "follow-crop + color-pop",
+      "reason": "man smiles for car selfie facing camera",
+      "seed": [
+       0.5625,
+       -0.0007,
+       1.0031,
+       0.9954
+      ]
+     },
+     {
+      "clip": "DJI_0683",
+      "label": "Bonneville Hatchery",
+      "in": 14.0,
+      "out": 18.0,
+      "beats": 8,
+      "effect": "follow-crop + color-pop",
+      "reason": "man outdoors talking beside waving woman",
+      "seed": [
+       0.1533,
+       0.1606,
+       0.6052,
+       0.9991
+      ]
+     },
+     {
+      "clip": "DJI_0683",
+      "label": "Bonneville Hatchery",
+      "in": 62.0,
+      "out": 66.0,
+      "beats": 8,
+      "effect": "follow-crop + color-pop",
+      "reason": "man laughing in sunlight low angle",
+      "seed": [
+       -0.0022,
+       0.0024,
+       0.4344,
+       0.9972
+      ]
+     }
+    ],
+    "excluded": []
+   },
+   "stats": {
+    "frames_segmented": 956,
+    "seconds": 408,
+    "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro \u00b7 MPS)"
+   }
+  }
+ ]
+}
