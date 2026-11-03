@@ -6,6 +6,8 @@ import type { Clip, Manifest, Run, ScanEntry, Shot } from "@/lib/types";
 import { matchRun } from "@/lib/match";
 import { dur, nf, tc } from "@/lib/format";
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 type Phase = "idle" | "scanning" | "result";
 
 const INTRO_MS = 900;
@@ -27,8 +29,10 @@ export default function FollowCut() {
 
   useEffect(() => {
     let alive = true;
-    fetch("/data/manifest.json", { cache: "no-store" })
-      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    fetch(`${BASE}/data/manifest.json`, { cache: "no-store" })
+      .then((r) => (r.ok ? r.text() : Promise.reject(r.status)))
+      // static host may serve under a sub-path (GitHub Pages): prefix every /data/ media path
+      .then((t) => JSON.parse(BASE ? t.replaceAll('"/data/', `"${BASE}/data/`) : t) as Manifest)
       .then((m: Manifest) => alive && setManifest(m))
       .catch(() => alive && setLoadError(true));
     return () => {
@@ -462,6 +466,17 @@ function Tile(props: {
                 {scan?.track ?? "T1"}
                 {conf != null && <span className="text-paper/80">{conf.toFixed(2)}</span>}
               </div>
+              {scan?.spark_rejected && !scan?.excluded && (
+                <>
+                  <div className="absolute inset-0 bg-black/55" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 px-2 text-center">
+                    <span className="rounded-full border border-amber/50 bg-black/60 px-2.5 py-0.5 font-mono text-[11px] text-amber">
+                      ✕ Muse Spark: not them
+                    </span>
+                    {!small && <span className="line-clamp-2 text-[11px] leading-tight text-paper/85">{scan.spark_rejected}</span>}
+                  </div>
+                </>
+              )}
               {scan?.excluded && (
                 <>
                   <div className="absolute inset-0 bg-black/55" />
@@ -655,6 +670,8 @@ function PlanPanel(props: {
   const plan = run?.plan;
   const shots = plan?.shots ?? [];
   const isStub = (plan?.planner ?? "").toLowerCase().includes("stub");
+  const isSpark = (plan?.planner ?? "").startsWith("muse-spark");
+  const rejectedN = plan?.rejected_by_spark?.length ?? 0;
   const showing = phase === "result" && !!run;
 
   return (
@@ -680,7 +697,15 @@ function PlanPanel(props: {
               stub
             </span>
           )}
-          <span className="text-mute">{plan.planner_label}</span>
+          {isSpark && (
+            <span className="flex-none rounded-full border border-amber/40 bg-amber/10 px-2 py-0.5 font-mono text-[10.5px] uppercase tracking-wider text-amber">
+              Muse Spark
+            </span>
+          )}
+          <span className="text-mute">
+            {plan.planner_label}
+            {rejectedN > 0 && ` · rejected ${rejectedN} look-alike clip${rejectedN > 1 ? "s" : ""}`}
+          </span>
         </div>
       )}
 

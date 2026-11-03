@@ -38,9 +38,16 @@ def spark_inputs(sc, cache, exclude):
     kfs = {}
     for m in moments({**sc, "windows": [w for w in sc["windows"] if w["clip"] not in exclude]}):
         t = (m["in"] + m["out"]) / 2
-        for _, rgb in frames(CLIPS[m["clip"]], t, t + 0.04, 30, width=512):
+        samples = [x for w in sc["windows"] if w["clip"] == m["clip"] for x in w["samples"] if x["score"] > 0 and "box" in x]
+        near = min(samples, key=lambda x: abs(x["t"] - t)) if samples else None
+        for _, rgb in frames(CLIPS[m["clip"]], near["t"] if near else t, (near["t"] if near else t) + 0.04, 30, width=512):
             out = kd / f"{m['clip']}_{m['in']}.jpg"
-            cv2.imwrite(str(out), cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR), [cv2.IMWRITE_JPEG_QUALITY, 80])
+            bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
+            if near:  # box the subject SAM picked, so Spark judges the same individual SAM tracked
+                h, w_ = bgr.shape[:2]
+                x0, y0, x1, y1 = near["box"]
+                cv2.rectangle(bgr, (int(x0 * w_), int(y0 * h)), (int(x1 * w_) - 1, int(y1 * h) - 1), (40, 220, 255), 3)
+            cv2.imwrite(str(out), bgr, [cv2.IMWRITE_JPEG_QUALITY, 80])
             kfs[(m["clip"], m["in"])] = out
             break
     return kfs, reference
@@ -68,9 +75,11 @@ def main(prompt, slug, track):
     shutil.copy(cache / "shot00.jpg", dst / "poster.jpg")
     for c in sc["clips"]:
         shutil.copy(cache / c["thumb"], dst / c["thumb"])
+    rj = {r["clip"]: r["why"] for r in p.get("rejected_by_spark", [])}
     run = {"slug": slug, "prompt": prompt, "edit": f"/data/runs/{slug}/edit.mp4", "poster": f"/data/runs/{slug}/poster.jpg",
            "compare": f"/data/runs/{slug}/compare.mp4",
-           "scan": [{**c, "thumb": f"/data/runs/{slug}/{c['thumb']}", **({"excluded": True} if c["clip"] in exclude else {})} for c in sc["clips"]],
+           "scan": [{**c, "thumb": f"/data/runs/{slug}/{c['thumb']}", **({"excluded": True} if c["clip"] in exclude else {}),
+                     **({"spark_rejected": rj[c["clip"]]} if c["clip"] in rj else {})} for c in sc["clips"]],
            "plan": p,
            "stats": {"frames_segmented": sc["frames"] + r["frames"], "seconds": round(sc["sam_seconds"] + r["sam_seconds"]),
                      "model": "SAM 3.1 (unsloth/sam3.1 mirror, fp16, Apple M5 Pro · MPS)"}}

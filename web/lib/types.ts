@@ -12,6 +12,7 @@ export type ScanEntry = {
   clip: string;
   found?: boolean;
   excluded?: boolean;
+  spark_rejected?: string;
   presence?: number;
   score?: number;
   track?: string;
@@ -31,6 +32,7 @@ export type Shot = {
 export type Plan = {
   planner?: string;
   planner_label?: string;
+  rejected_by_spark?: { clip: string; label?: string; why?: string }[];
   bpm?: number;
   duration?: number;
   shots?: Shot[];

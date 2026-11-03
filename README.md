@@ -11,7 +11,7 @@ Auto-editors cut on faces, speech or whoever is biggest in frame. They can't fol
 
 ## What it does
 1. **Scan.** For a text prompt, SAM 3.1 segments every clip in the library. It takes a coarse pass on every clip ("is she in this clip at all?") and a dense 3 fps pass on candidate windows (where, how big, how confident). Clips without the subject (driving POV, the bridge at night) drop out.
-2. **Plan.** The planner scores 4- and 8-beat moments by presence, mask area and SAM confidence. It then picks one moment per clip in story order and fits them to a 120 BPM grid. *Muse Spark is the intended planner. See "Meta tech" below for its current status.*
+2. **Plan.** FollowCut scores every 4-, 6- and 8-beat moment by presence, mask area and SAM confidence. Then **Muse Spark** gets the candidate stats, a reference crop of the subject and one keyframe per moment with SAM's pick boxed. It rejects look-alikes (a stranger who also matches "the man"), picks the moments worth keeping, and returns a shot list on a 120 BPM grid with a reason for every shot. The plan is checked before render: ids in range, one shot per clip, story order, length near target.
 3. **Render.** Each chosen shot is segmented again at full frame rate (30 fps). The mask centroid is smoothed into a 9:16 follow-crop with a slow push-in. The mask, feathered, drives a subject-only color grade (subject in color, world desaturated) and a spotlight vignette. The output is a 720×1280 H.264 edit plus a side-by-side raw-vs-edit video.
 4. **Re-cut.** Retype the prompt and the same footage cuts into a different film about a different person.
 
@@ -21,7 +21,7 @@ The web app (`web/`) is a deterministic **replay viewer** of cached runs, so the
 | | How it's used |
 |---|---|
 | **SAM 3.1** (open weights) | Text-prompted concept segmentation is the core of the product. Masks drive clip selection, the follow-crop path and every visual effect. On an M5 Pro over MPS in fp16 it takes 0.42 s/frame; a full run is ~1,200 segmented frames. Weights load through transformers `Sam3Model` from `unsloth/sam3.1`, a mirror of `facebook/sam3.1` under the SAM License. |
-| **Muse Spark** (Meta Model API) | The edit planner (`followcut/planner.py::spark`) sends the SAM stats plus one keyframe per candidate moment and gets back a structured shot list with reasons. **Status: wired, waiting on the API key.** Until `META_API_KEY` is set, a deterministic heuristic planner runs instead, and the UI labels it as a stub. |
+| **Muse Spark** (`muse-spark-1.3`, Meta Model API) | The edit planner and identity checker (`followcut/planner.py::spark`). One multimodal call per run with the SAM stats, a reference crop and a boxed keyframe per candidate. It returns JSON with the shots (in/out, beats, reason) and the rejected look-alikes (with a reason), and the UI shows both. In the demo's "the man" run, Spark threw out a stranger at the airport on its own, with no manual exclude list. Without `META_API_KEY`, or if the call fails, a deterministic heuristic planner runs and the UI labels it as one. |
 
 ## Run it
 ```bash
@@ -29,7 +29,7 @@ The web app (`web/`) is a deterministic **replay viewer** of cached runs, so the
 uv venv -p 3.12 .venv && uv pip install --python .venv/bin/python torch torchvision transformers pillow opencv-python-headless numpy accelerate
 export FOOTAGE_DIR=~/path/to/trip   # raw/dji/*.MP4 and raw/shared_album/*.mp4
 .venv/bin/python -m followcut.run "the woman with long hair" woman W1   # scan → plan → render → web/public/data
-# optional: META_API_KEY=... to plan with Muse Spark; EXCLUDE=<clip ids> for clips where the concept matched someone else
+# META_API_KEY=... plans with Muse Spark (falls back to a heuristic without it); EXCLUDE=<clip ids> for look-alikes Spark misses
 
 # viewer
 cd web && npm install && npm run build && npm start   # http://localhost:3123
@@ -44,12 +44,11 @@ cd web && npm install && npm run build && npm start   # http://localhost:3123
 - `web/`: a Next.js static replay viewer covering scan animation, the 9:16 player, raw-vs-edit and the plan.
 
 ## Honest limitations
-- **SAM finds concepts, not identities.** "The woman with long hair" also matches a stranger in line at a café. The fix today is a per-run exclude list, which the plan records and the UI marks "not them". The real fix is cross-clip re-identification, which is next.
+- **SAM finds concepts, not identities.** "The man" also matches a stranger at the gate. Muse Spark catches most of these by comparing each boxed keyframe to a reference crop. A per-run exclude list (`EXCLUDE=`) is still there for what it misses, and the UI marks those "not them". Embedding-based re-identification across clips is next.
 - The library's dense-scan windows are a curated shortlist of each long clip; every clip still gets a coarse scan. Scanning whole 10-minute clips densely is a batching job, not a design change.
 - The footage is the author's own trip footage. Media files are kept out of the repo.
 
 ## What's next
-- Muse Spark as planner *and* identity checker: give it a reference crop of the person and let it reject look-alikes.
 - SAM 3.1 video tracking (Object Multiplex) in place of per-frame detection + IoU linking.
 - Captions tucked behind the subject (mask-aware text), and speaker-filtered captions.
 - Phone app: pick an album, type a name, share the reel.
