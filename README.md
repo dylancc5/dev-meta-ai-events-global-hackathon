@@ -4,7 +4,7 @@
 
 **Live demo:** https://dylancc5.github.io/dev-meta-ai-events-global-hackathon/ (replay of cached on-device runs)
 
-You come back from a trip with 23 clips and 56 minutes of footage and you never edit any of it. FollowCut asks one question: *who is this video about?* Type "the woman with long hair", "the man" or "the dog". **SAM 3.1** finds that subject in every clip. **Muse Spark** throws out look-alikes and picks their best moments on the beat, and the renderer cuts a vertical 9:16 edit where the camera follows them, they stay in full color, and the rest of the world fades to gray.
+You come back from a trip with 23 clips and 56 minutes of footage and you never edit any of it. FollowCut asks one question: *who is this video about?* Type "the woman with long hair", "the man" or "the man in sunglasses". **SAM 3.1** finds that subject in every clip. **Muse Spark** throws out look-alikes and picks their best moments on the beat, and the renderer cuts a vertical 9:16 edit where the camera follows them, they stay in full color, and the rest of the world fades to gray.
 
 Built for the **Meta Global AI Developer Hackathon 2026** · Indie track · theme: *Build for Your World*.
 
