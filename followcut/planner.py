@@ -99,12 +99,12 @@ def spark(scan, prompt, keyframes, target_beats=44, reference=None):
         text = "".join(p.get("text", "") for p in text)
     plan = json.loads(text[text.find("{"): text.rfind("}") + 1])
     rej_ids = {int(r["id"]) for r in plan.get("rejected", []) if str(r.get("id", "")).lstrip("-").isdigit()}
-    picked, seen_clips = [], set()
-    for s in plan["shots"]:  # validate: in range, not rejected, one per clip
+    picked, seen, per_clip = [], set(), {}
+    for s in plan["shots"]:  # validate: in range, not rejected, each moment once, at most 2 per clip
         i = int(s["id"])
-        if not 0 <= i < len(ms) or i in rej_ids or ms[i]["clip"] in seen_clips:
+        if not 0 <= i < len(ms) or i in rej_ids or i in seen or per_clip.get(ms[i]["clip"], 0) >= 2:
             continue
-        seen_clips.add(ms[i]["clip"]); picked.append((i, s))
+        seen.add(i); per_clip[ms[i]["clip"]] = per_clip.get(ms[i]["clip"], 0) + 1; picked.append((i, s))
     if len(picked) < min(3, len(ms) - len(rej_ids)) or not picked:
         raise ValueError(f"Spark plan too short ({len(picked)} shots)")
     picked.sort(key=lambda p: (CHRONO.index(ms[p[0]]["clip"]) if ms[p[0]]["clip"] in CHRONO else 99, ms[p[0]]["in"]))
@@ -143,6 +143,7 @@ def plan(scan, prompt, keyframes=None, exclude=(), reference=None):
             return spark(scan, prompt, keyframes or {}, reference=reference)
         except Exception as e:  # never let the demo die on the network; record why
             p = heuristic(scan)
-            p["planner_label"] += f" (Spark call failed: {type(e).__name__})"
+            p["planner"] = "heuristic-fallback"
+            p["planner_label"] = f"Heuristic planner (fallback: Muse Spark call failed, {type(e).__name__})"
             return p
     return heuristic(scan)
