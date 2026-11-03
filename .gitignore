@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+cache/
+out/
+*.mp4
+*.mov
+*.wav
+*.jpg
+*.png
+.env
+.env.local
+node_modules/
+web/.next/
+web/out/
+!web/public/brand/**

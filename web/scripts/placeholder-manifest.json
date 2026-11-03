@@ -1,0 +1,600 @@
+{
+  "library": {
+    "name": "Portland, Oct 16–18",
+    "clips": [
+      {
+        "id": "DJI_0681",
+        "label": "Cascade Locks",
+        "thumb": "/data/thumbs/DJI_0681.jpg",
+        "duration": 23.6,
+        "aspect": "16:9"
+      },
+      {
+        "id": "DJI_0683",
+        "label": "Multnomah Falls",
+        "thumb": "/data/thumbs/DJI_0683.jpg",
+        "duration": 41.2,
+        "aspect": "16:9"
+      },
+      {
+        "id": "DJI_0690",
+        "label": "Vista House",
+        "thumb": "/data/thumbs/DJI_0690.jpg",
+        "duration": 18.4,
+        "aspect": "16:9"
+      },
+      {
+        "id": "DJI_0694",
+        "label": "Powell’s Books",
+        "thumb": "/data/thumbs/DJI_0694.jpg",
+        "duration": 96,
+        "aspect": "16:9"
+      },
+      {
+        "id": "DJI_0702",
+        "label": "Voodoo Doughnut",
+        "thumb": "/data/thumbs/DJI_0702.jpg",
+        "duration": 32.5,
+        "aspect": "16:9"
+      },
+      {
+        "id": "DJI_0705",
+        "label": "Pearl District",
+        "thumb": "/data/thumbs/DJI_0705.jpg",
+        "duration": 140.8,
+        "aspect": "16:9"
+      },
+      {
+        "id": "DJI_0711",
+        "label": "Japanese Garden",
+        "thumb": "/data/thumbs/DJI_0711.jpg",
+        "duration": 64.3,
+        "aspect": "16:9"
+      },
+      {
+        "id": "DJI_0716",
+        "label": "Hawthorne Bridge",
+        "thumb": "/data/thumbs/DJI_0716.jpg",
+        "duration": 27.9,
+        "aspect": "16:9"
+      },
+      {
+        "id": "DJI_0720",
+        "label": "Pittock Mansion",
+        "thumb": "/data/thumbs/DJI_0720.jpg",
+        "duration": 210.5,
+        "aspect": "16:9"
+      },
+      {
+        "id": "DJI_0724",
+        "label": "Saturday Market",
+        "thumb": "/data/thumbs/DJI_0724.jpg",
+        "duration": 88.1,
+        "aspect": "16:9"
+      },
+      {
+        "id": "DJI_0731",
+        "label": "Forest Park",
+        "thumb": "/data/thumbs/DJI_0731.jpg",
+        "duration": 175,
+        "aspect": "16:9"
+      },
+      {
+        "id": "DJI_0736",
+        "label": "Tilikum Crossing",
+        "thumb": "/data/thumbs/DJI_0736.jpg",
+        "duration": 52.7,
+        "aspect": "16:9"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "slug": "woman",
+      "prompt": "the woman with long hair",
+      "edit": "/data/runs/woman/edit.mp4",
+      "poster": "/data/runs/woman/poster.jpg",
+      "compare": "/data/runs/woman/compare.mp4",
+      "scan": [
+        {
+          "clip": "DJI_0681",
+          "found": true,
+          "presence": 0.78,
+          "score": 0.82,
+          "track": "W1",
+          "frames": 81,
+          "thumb": "/data/runs/woman/scan/DJI_0681.jpg"
+        },
+        {
+          "clip": "DJI_0683",
+          "found": true,
+          "presence": 0.85,
+          "score": 0.89,
+          "track": "W1",
+          "frames": 81,
+          "thumb": "/data/runs/woman/scan/DJI_0683.jpg"
+        },
+        {
+          "clip": "DJI_0690",
+          "found": true,
+          "presence": 0.92,
+          "score": 0.96,
+          "track": "W1",
+          "frames": 81,
+          "thumb": "/data/runs/woman/scan/DJI_0690.jpg"
+        },
+        {
+          "clip": "DJI_0694",
+          "found": true,
+          "presence": 0.79,
+          "score": 0.83,
+          "track": "W1",
+          "frames": 81,
+          "thumb": "/data/runs/woman/scan/DJI_0694.jpg"
+        },
+        {
+          "clip": "DJI_0702",
+          "found": false,
+          "presence": 0.06,
+          "score": 0,
+          "frames": 0
+        },
+        {
+          "clip": "DJI_0705",
+          "found": true,
+          "presence": 0.93,
+          "score": 0.97,
+          "track": "W1",
+          "frames": 81,
+          "thumb": "/data/runs/woman/scan/DJI_0705.jpg"
+        },
+        {
+          "clip": "DJI_0711",
+          "found": true,
+          "presence": 0.8,
+          "score": 0.84,
+          "track": "W1",
+          "frames": 81,
+          "thumb": "/data/runs/woman/scan/DJI_0711.jpg"
+        },
+        {
+          "clip": "DJI_0716",
+          "found": true,
+          "presence": 0.87,
+          "score": 0.91,
+          "track": "W1",
+          "frames": 81,
+          "thumb": "/data/runs/woman/scan/DJI_0716.jpg"
+        },
+        {
+          "clip": "DJI_0720",
+          "found": false,
+          "presence": 0.08,
+          "score": 0,
+          "frames": 0
+        },
+        {
+          "clip": "DJI_0724",
+          "found": true,
+          "presence": 0.81,
+          "score": 0.85,
+          "track": "W1",
+          "frames": 81,
+          "thumb": "/data/runs/woman/scan/DJI_0724.jpg"
+        },
+        {
+          "clip": "DJI_0731",
+          "found": true,
+          "presence": 0.88,
+          "score": 0.92,
+          "track": "W1",
+          "frames": 81,
+          "thumb": "/data/runs/woman/scan/DJI_0731.jpg"
+        },
+        {
+          "clip": "DJI_0736",
+          "found": true,
+          "presence": 0.95,
+          "score": 0.99,
+          "track": "W1",
+          "frames": 81,
+          "thumb": "/data/runs/woman/scan/DJI_0736.jpg"
+        }
+      ],
+      "plan": {
+        "planner": "heuristic-stub",
+        "planner_label": "Heuristic planner (stub — Muse Spark pending API key)",
+        "bpm": 110,
+        "duration": 14.2,
+        "shots": [
+          {
+            "clip": "DJI_0681",
+            "in": 2,
+            "out": 4.18,
+            "beats": 4,
+            "reason": "subject large and centered, high SAM confidence",
+            "effect": "color-pop"
+          },
+          {
+            "clip": "DJI_0683",
+            "in": 3.7,
+            "out": 5.88,
+            "beats": 4,
+            "reason": "walking toward camera, mist backlight",
+            "effect": "color-pop"
+          },
+          {
+            "clip": "DJI_0690",
+            "in": 5.4,
+            "out": 6.49,
+            "beats": 2,
+            "reason": "hair catches wind at the railing",
+            "effect": "speed-ramp"
+          },
+          {
+            "clip": "DJI_0694",
+            "in": 7.1,
+            "out": 9.28,
+            "beats": 4,
+            "reason": "laughing between shelves, steady track",
+            "effect": "color-pop"
+          },
+          {
+            "clip": "DJI_0705",
+            "in": 8.8,
+            "out": 13.16,
+            "beats": 8,
+            "reason": "golden light on bridge, profile shot",
+            "effect": "punch-in"
+          },
+          {
+            "clip": "DJI_0711",
+            "in": 10.5,
+            "out": 12.68,
+            "beats": 4,
+            "reason": "turns to camera, smile peak",
+            "effect": "color-pop"
+          }
+        ]
+      },
+      "stats": {
+        "frames_segmented": 812,
+        "seconds": 341,
+        "model": "SAM 3.1 (unsloth/sam3.1, fp16, Apple M5 Pro MPS)"
+      }
+    },
+    {
+      "slug": "man",
+      "prompt": "the man in sunglasses",
+      "edit": "/data/runs/man/edit.mp4",
+      "poster": "/data/runs/man/poster.jpg",
+      "compare": "/data/runs/man/compare.mp4",
+      "scan": [
+        {
+          "clip": "DJI_0681",
+          "found": true,
+          "presence": 0.78,
+          "score": 0.82,
+          "track": "M1",
+          "frames": 92,
+          "thumb": "/data/runs/man/scan/DJI_0681.jpg"
+        },
+        {
+          "clip": "DJI_0683",
+          "found": false,
+          "presence": 0.07,
+          "score": 0,
+          "frames": 0
+        },
+        {
+          "clip": "DJI_0690",
+          "found": true,
+          "presence": 0.92,
+          "score": 0.96,
+          "track": "M1",
+          "frames": 92,
+          "thumb": "/data/runs/man/scan/DJI_0690.jpg"
+        },
+        {
+          "clip": "DJI_0694",
+          "found": false,
+          "presence": 0.13,
+          "score": 0,
+          "frames": 0
+        },
+        {
+          "clip": "DJI_0702",
+          "found": true,
+          "presence": 0.86,
+          "score": 0.9,
+          "track": "M1",
+          "frames": 92,
+          "thumb": "/data/runs/man/scan/DJI_0702.jpg"
+        },
+        {
+          "clip": "DJI_0705",
+          "found": true,
+          "presence": 0.93,
+          "score": 0.97,
+          "track": "M1",
+          "frames": 92,
+          "thumb": "/data/runs/man/scan/DJI_0705.jpg"
+        },
+        {
+          "clip": "DJI_0711",
+          "found": false,
+          "presence": 0.12,
+          "score": 0,
+          "frames": 0
+        },
+        {
+          "clip": "DJI_0716",
+          "found": true,
+          "presence": 0.87,
+          "score": 0.91,
+          "track": "M1",
+          "frames": 92,
+          "thumb": "/data/runs/man/scan/DJI_0716.jpg"
+        },
+        {
+          "clip": "DJI_0720",
+          "found": true,
+          "presence": 0.94,
+          "score": 0.98,
+          "track": "M1",
+          "frames": 92,
+          "thumb": "/data/runs/man/scan/DJI_0720.jpg"
+        },
+        {
+          "clip": "DJI_0724",
+          "found": true,
+          "presence": 0.81,
+          "score": 0.85,
+          "track": "M1",
+          "frames": 92,
+          "thumb": "/data/runs/man/scan/DJI_0724.jpg"
+        },
+        {
+          "clip": "DJI_0731",
+          "found": false,
+          "presence": 0.04,
+          "score": 0,
+          "frames": 0
+        },
+        {
+          "clip": "DJI_0736",
+          "found": false,
+          "presence": 0.07,
+          "score": 0,
+          "frames": 0
+        }
+      ],
+      "plan": {
+        "planner": "heuristic-stub",
+        "planner_label": "Heuristic planner (stub — Muse Spark pending API key)",
+        "bpm": 96,
+        "duration": 16.3,
+        "shots": [
+          {
+            "clip": "DJI_0681",
+            "in": 2,
+            "out": 4.5,
+            "beats": 4,
+            "reason": "subject fills frame, clean mask",
+            "effect": "color-pop"
+          },
+          {
+            "clip": "DJI_0690",
+            "in": 3.7,
+            "out": 6.2,
+            "beats": 4,
+            "reason": "sunglasses glint on the overlook",
+            "effect": "color-pop"
+          },
+          {
+            "clip": "DJI_0702",
+            "in": 5.4,
+            "out": 6.65,
+            "beats": 2,
+            "reason": "holding the doughnut box, centered",
+            "effect": "speed-ramp"
+          },
+          {
+            "clip": "DJI_0705",
+            "in": 7.1,
+            "out": 9.6,
+            "beats": 4,
+            "reason": "crossing street, strong motion",
+            "effect": "color-pop"
+          },
+          {
+            "clip": "DJI_0716",
+            "in": 8.8,
+            "out": 13.8,
+            "beats": 8,
+            "reason": "leaning on balustrade, wide vista",
+            "effect": "punch-in"
+          },
+          {
+            "clip": "DJI_0720",
+            "in": 10.5,
+            "out": 13,
+            "beats": 4,
+            "reason": "end-of-day walk, steady track",
+            "effect": "color-pop"
+          }
+        ]
+      },
+      "stats": {
+        "frames_segmented": 644,
+        "seconds": 276,
+        "model": "SAM 3.1 (unsloth/sam3.1, fp16, Apple M5 Pro MPS)"
+      }
+    },
+    {
+      "slug": "dog",
+      "prompt": "the dog",
+      "edit": "/data/runs/dog/edit.mp4",
+      "poster": "/data/runs/dog/poster.jpg",
+      "scan": [
+        {
+          "clip": "DJI_0681",
+          "found": true,
+          "presence": 0.78,
+          "score": 0.82,
+          "track": "D1",
+          "frames": 84,
+          "thumb": "/data/runs/dog/scan/DJI_0681.jpg"
+        },
+        {
+          "clip": "DJI_0683",
+          "found": true,
+          "presence": 0.85,
+          "score": 0.89,
+          "track": "D1",
+          "frames": 84,
+          "thumb": "/data/runs/dog/scan/DJI_0683.jpg"
+        },
+        {
+          "clip": "DJI_0690",
+          "found": false,
+          "presence": 0.1,
+          "score": 0,
+          "frames": 0
+        },
+        {
+          "clip": "DJI_0694",
+          "found": false,
+          "presence": 0.13,
+          "score": 0,
+          "frames": 0
+        },
+        {
+          "clip": "DJI_0702",
+          "found": false,
+          "presence": 0.06,
+          "score": 0,
+          "frames": 0
+        },
+        {
+          "clip": "DJI_0705",
+          "found": true,
+          "presence": 0.93,
+          "score": 0.97,
+          "track": "D1",
+          "frames": 84,
+          "thumb": "/data/runs/dog/scan/DJI_0705.jpg"
+        },
+        {
+          "clip": "DJI_0711",
+          "found": true,
+          "presence": 0.8,
+          "score": 0.84,
+          "track": "D1",
+          "frames": 84,
+          "thumb": "/data/runs/dog/scan/DJI_0711.jpg"
+        },
+        {
+          "clip": "DJI_0716",
+          "found": false,
+          "presence": 0.05,
+          "score": 0,
+          "frames": 0
+        },
+        {
+          "clip": "DJI_0720",
+          "found": true,
+          "presence": 0.94,
+          "score": 0.98,
+          "track": "D1",
+          "frames": 84,
+          "thumb": "/data/runs/dog/scan/DJI_0720.jpg"
+        },
+        {
+          "clip": "DJI_0724",
+          "found": false,
+          "presence": 0.11,
+          "score": 0,
+          "frames": 0
+        },
+        {
+          "clip": "DJI_0731",
+          "found": true,
+          "presence": 0.88,
+          "score": 0.92,
+          "track": "D1",
+          "frames": 84,
+          "thumb": "/data/runs/dog/scan/DJI_0731.jpg"
+        },
+        {
+          "clip": "DJI_0736",
+          "found": false,
+          "presence": 0.07,
+          "score": 0,
+          "frames": 0
+        }
+      ],
+      "plan": {
+        "planner": "heuristic-stub",
+        "planner_label": "Heuristic planner (stub — Muse Spark pending API key)",
+        "bpm": 124,
+        "duration": 12.6,
+        "shots": [
+          {
+            "clip": "DJI_0681",
+            "in": 2,
+            "out": 3.94,
+            "beats": 4,
+            "reason": "running at camera, high presence",
+            "effect": "color-pop"
+          },
+          {
+            "clip": "DJI_0683",
+            "in": 3.7,
+            "out": 5.64,
+            "beats": 4,
+            "reason": "sniffing the trail, low angle",
+            "effect": "color-pop"
+          },
+          {
+            "clip": "DJI_0705",
+            "in": 5.4,
+            "out": 6.37,
+            "beats": 2,
+            "reason": "tail-wag close-up, crisp mask",
+            "effect": "speed-ramp"
+          },
+          {
+            "clip": "DJI_0711",
+            "in": 7.1,
+            "out": 9.04,
+            "beats": 4,
+            "reason": "fetch moment, peak motion",
+            "effect": "color-pop"
+          },
+          {
+            "clip": "DJI_0720",
+            "in": 8.8,
+            "out": 12.67,
+            "beats": 8,
+            "reason": "sitting by the pond, centered",
+            "effect": "punch-in"
+          },
+          {
+            "clip": "DJI_0731",
+            "in": 10.5,
+            "out": 12.44,
+            "beats": 4,
+            "reason": "sprinting through ferns",
+            "effect": "color-pop"
+          }
+        ]
+      },
+      "stats": {
+        "frames_segmented": 503,
+        "seconds": 214,
+        "model": "SAM 3.1 (unsloth/sam3.1, fp16, Apple M5 Pro MPS)"
+      }
+    }
+  ]
+}
