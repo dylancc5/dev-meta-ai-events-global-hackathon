@@ -10,5 +10,5 @@ TMP=$(mktemp -d); cp -R out/. "$TMP"; cd "$TMP"
 git init -q -b gh-pages && git add -A && git commit -qm "Deploy viewer $(date -u +%FT%TZ)"
 git push -qf "https://github.com/dylancc5/$REPO.git" gh-pages
 cd /; rm -rf "$TMP"
-gh api "repos/dylancc5/$REPO/pages" >/dev/null 2>&1 || gh api -X POST "repos/dylancc5/$REPO/pages" -f "source[branch]=gh-pages" -f "source[path]=/" >/dev/null
+gh api "repos/dylancc5/$REPO/pages" >/dev/null 2>&1 || gh api -X POST "repos/dylancc5/$REPO/pages" -f "source[branch]=gh-pages" -f "source[path]=/" >/dev/null 2>&1 || true
 echo "https://dylancc5.github.io/$REPO/"
