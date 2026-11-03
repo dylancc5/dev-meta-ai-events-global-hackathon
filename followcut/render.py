@@ -49,8 +49,14 @@ def track_shot(seg, path, t_in, n, prompt):
         m = last if last is not None else np.ones(f.shape[:2], bool)
         masks.append(m)
         ys, xs = np.nonzero(m)
-        cx.append(xs.mean() / f.shape[1] if len(xs) else 0.5)
-        cy.append(ys.mean() / f.shape[0] if len(ys) else 0.5)
+        if len(xs):
+            # frame on the head: centroid of the top 40% of the mask, eye line ~30% down
+            top, bot = ys.min(), ys.max()
+            head = ys <= top + 0.4 * (bot - top)
+            cx.append(xs[head].mean() / f.shape[1])
+            cy.append((top + 0.3 * (bot - top)) / f.shape[0])
+        else:
+            cx.append(0.5); cy.append(0.5)
     return full, masks, _smooth(cx), _smooth(cy)
 
 

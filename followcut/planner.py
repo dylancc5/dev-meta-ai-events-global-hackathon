@@ -18,7 +18,7 @@ def _moments(scan):
     for w in scan["windows"]:
         S = w["samples"]
         best = None
-        for beats in (8, 4):
+        for beats in (8, 6, 4):
             L = beats * SPB
             for i, s in enumerate(S):
                 seg = [x for x in S[i:] if x["t"] < s["t"] + L]
@@ -61,14 +61,18 @@ def heuristic(scan, target_beats=44, max_per_clip=1, exclude=()):
 
 
 SPARK_PROMPT = """You are the editor for FollowCut. The user wants a short beat-synced vertical edit about: "{prompt}".
-SAM 3.1 already found the subject; below are candidate moments with stats (presence = share of sampled frames
-the subject is in, area = share of the frame the subject's mask covers, conf = SAM score). One keyframe per
-candidate is attached, in the same order. Pick moments that tell the trip's story and show the subject's best
-moments (laughing, waving, moving), {target} beats total at 120 BPM, each shot 4 or 8 beats, ordered as a story.
-Return JSON: {{"shots":[{{"id":<candidate id>,"beats":4|8,"reason":"<=14 words, what happens in the shot"}}]}}"""
+SAM 3.1 already segmented that concept in every clip. Image 1 is the REFERENCE: the user's subject (outlined).
+Images 2..N are one raw keyframe per candidate moment, in the same order as the JSON list.
+1. Identity: SAM matches the concept, not the person. Reject any candidate whose outlined subject is clearly a
+   different individual from the reference (a stranger, a statue, a toy).
+2. Story: from the rest, pick moments that show the subject at their best (laughing, waving, moving, a reveal),
+   {target} beats total at 120 BPM, each shot 4, 6 or 8 beats, ordered as a story (candidates are chronological).
+Stats: presence = share of sampled frames with the subject, area = mask share of frame, conf = SAM score.
+Return JSON only: {{"rejected":[{{"id":<id>,"why":"<=10 words"}}],
+"shots":[{{"id":<candidate id>,"beats":4|6|8,"reason":"<=14 words: what happens in the shot"}}]}}"""
 
 
-def spark(scan, prompt, keyframes, target_beats=44):
+def spark(scan, prompt, keyframes, target_beats=44, reference=None):
     """Muse Spark via the Meta Model API (OpenAI-compatible chat endpoint; base/model are env-configurable)."""
     key = os.environ["META_API_KEY"]
     base = os.environ.get("META_API_BASE", "https://api.llama.com/compat/v1")
@@ -78,11 +82,13 @@ def spark(scan, prompt, keyframes, target_beats=44):
               "presence": round(m["presence"], 2), "area": round(m["area"], 3), "conf": round(m["conf"], 2)}
              for i, m in enumerate(ms)]
     content = [{"type": "text", "text": SPARK_PROMPT.format(prompt=prompt, target=target_beats) + "\n" + json.dumps(cands)}]
+    img = lambda path: {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(Path(path).read_bytes()).decode()}}
+    if reference and Path(reference).exists():
+        content.append(img(reference))
     for m in ms:
         kf = keyframes.get((m["clip"], m["in"]))
         if kf and Path(kf).exists():
-            content.append({"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," +
-                                                                base64.b64encode(Path(kf).read_bytes()).decode()}})
+            content.append(img(kf))
     body = {"model": model, "messages": [{"role": "user", "content": content}], "response_format": {"type": "json_object"}}
     req = urllib.request.Request(base.rstrip("/") + "/chat/completions", data=json.dumps(body).encode(),
                                  headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
@@ -94,20 +100,27 @@ def spark(scan, prompt, keyframes, target_beats=44):
     shots = []
     for s in plan["shots"]:
         m = ms[int(s["id"])]
-        beats = 8 if int(s.get("beats", m["beats"])) >= 8 and m["beats"] == 8 else 4
+        beats = min(int(s.get("beats", m["beats"])), m["beats"])
+        beats = 8 if beats >= 8 else 6 if beats >= 6 else 4
         shots.append({"clip": m["clip"], "label": LABELS.get(m["clip"], m["clip"]), "in": m["in"],
                       "out": round(m["in"] + beats * SPB, 2), "beats": beats, "effect": "follow-crop + color-pop",
                       "reason": s.get("reason", "")})
-    return {"planner": f"muse-spark:{model}", "planner_label": f"Muse Spark ({model}) via Meta Model API",
+    rejected = [{"clip": ms[int(r["id"])]["clip"], "label": LABELS.get(ms[int(r["id"])]["clip"], ""), "why": r.get("why", "")}
+                for r in plan.get("rejected", []) if 0 <= int(r["id"]) < len(ms)]
+    return {"planner": f"muse-spark:{model}", "rejected_by_spark": rejected, "planner_label": f"Muse Spark ({model}) via Meta Model API",
             "bpm": 120, "duration": sum(s["beats"] for s in shots) * SPB, "shots": shots}
 
 
-def plan(scan, prompt, keyframes=None, exclude=()):
+def moments(scan):
+    return _moments(scan)
+
+
+def plan(scan, prompt, keyframes=None, exclude=(), reference=None):
     """exclude: clips the user marked "not them" (SAM matches the concept, e.g. any woman; cross-clip re-ID is future work)."""
     scan = {**scan, "windows": [w for w in scan["windows"] if w["clip"] not in exclude]}
     if os.environ.get("META_API_KEY"):
         try:
-            return spark(scan, prompt, keyframes or {})
+            return spark(scan, prompt, keyframes or {}, reference=reference)
         except Exception as e:  # never let the demo die on the network; record why
             p = heuristic(scan)
             p["planner_label"] += f" (Spark call failed: {type(e).__name__})"

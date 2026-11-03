@@ -27,13 +27,35 @@ def export_library():
     return {"name": LIBRARY_NAME, "clips": clips}
 
 
+def spark_inputs(sc, cache, exclude):
+    import cv2
+    from .planner import moments
+    from .video import frames
+    kd = cache / "kf"; kd.mkdir(exist_ok=True)
+    found = [c for c in sc["clips"] if c["found"] and c["clip"] not in exclude]
+    ref = max(found, key=lambda c: c["score"] * c["presence"]) if found else None
+    reference = cache / ref["thumb"] if ref else None
+    kfs = {}
+    for m in moments({**sc, "windows": [w for w in sc["windows"] if w["clip"] not in exclude]}):
+        t = (m["in"] + m["out"]) / 2
+        for _, rgb in frames(CLIPS[m["clip"]], t, t + 0.04, 30, width=512):
+            out = kd / f"{m['clip']}_{m['in']}.jpg"
+            cv2.imwrite(str(out), cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR), [cv2.IMWRITE_JPEG_QUALITY, 80])
+            kfs[(m["clip"], m["in"])] = out
+            break
+    return kfs, reference
+
+
 def main(prompt, slug, track):
     cache = ROOT / "cache" / slug
     seg = Segmenter()
     t0 = time.time()
     sc = json.loads((cache / "scan.json").read_text()) if (cache / "scan.json").exists() else scan(prompt, slug, cache, seg, track)
     exclude = [x for x in os.environ.get("EXCLUDE", "").split(",") if x]
-    p = make_plan(sc, prompt, exclude=exclude)
+    keyframes, reference = {}, None
+    if os.environ.get("META_API_KEY"):  # Spark sees one keyframe per candidate + a reference
+        keyframes, reference = spark_inputs(sc, cache, exclude)
+    p = make_plan(sc, prompt, keyframes=keyframes, exclude=exclude, reference=reference)
     p["excluded"] = [{"clip": c, "label": LABELS.get(c, c), "why": "user marked: not this person"} for c in exclude]
     (cache / "plan.json").write_text(json.dumps(p, indent=1))
     music = cache / "music.wav"
